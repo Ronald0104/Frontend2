@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Event</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .carrusel {
+            position: relative;
+            background-color: lightgoldenrodyellow;
+            height: 100%;            
+            min-height: 600px;    
+            overflow-x: hidden;
+            /* display: flex; */
+        }
+        .carrusel-item {
+            position: absolute;
+            width: 100%;            
+            top: 0;
+            left: 0;
+            opacity: 0;
+            display: flex;            
+            justify-content: center;    
+            align-items: center;            
+            max-height: 600px;                    
+        }
+        .carrusel-item img {
+            width: 100%;
+            max-width: 1000px;  
+            max-height: 600px;            
+            /* height: 100%;           */
+        }
+        .carrusel-item.active { 
+            opacity: 1;
+        }
+        .carrusel-arrow .item-arrow {
+            position: absolute;
+            z-index: 5;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: lightblue;
+            color: black;
+            font-size: 30px;
+            /* line-height: 50px; */
+            font-weight: bold;
+            opacity: 0.8;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+            cursor: pointer;
+        }
+        .arrow-prev {
+            left: 40px;
+        }
+        .arrow-next {
+            right: 40px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .carrusel { 
+                min-height: 250px;
+            }
+            .carrusel-item {
+                max-height: 250px;
+            }
+            .carrusel-arrow .item-arrow { 
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-3">
+        <h1 class="text-center">Carrusel with swipe</h1>
+
+        <hr>
+
+        <div class="carrusel">
+            <div class="carrusel-item active" data-index="1"><img src="imagenes/imagen1.webp" alt="" srcset=""></div>
+            <div class="carrusel-item" data-index="2"><img src="imagenes/imagen2.webp" alt="" srcset=""></div>
+            <div class="carrusel-item" data-index="3"><img src="imagenes/imagen3.jpg" alt="" srcset=""></div>
+            <div class="carrusel-item" data-index="4"><img src="imagenes/imagen4.webp" alt="" srcset=""></div>
+            <div class="carrusel-item" data-index="5"><img src="imagenes/imagen5.jpg" alt="" srcset=""></div>
+            <div class="carrusel-arrow">
+                <div class="item-arrow arrow-prev"><</div>
+                <div class="item-arrow arrow-next">></div>
+            </div>
+        </div>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta pariatur quasi nihil officia? Repudiandae labore velit numquam ipsum. Harum expedita repudiandae sapiente beatae, saepe possimus aperiam earum quos accusamus incidunt.
+        Voluptate repudiandae esse molestiae ipsa molestias consectetur delectus quos sunt explicabo! Deleniti aliquam, autem totam mollitia incidunt quam asperiores optio laborum doloribus natus culpa, sint, eius excepturi accusantium recusandae quae.
+        Aut molestias vitae accusantium animi? Enim unde quos odit molestias? Ab dignissimos voluptate veritatis, ipsam, voluptates eaque molestias nulla libero nihil at sit dolore, quos dolor ipsum numquam fuga nostrum!
+        Ea doloribus sit itaque et natus accusantium eos pariatur ipsum exercitationem asperiores alias, placeat aspernatur debitis est maiores molestias aliquid perferendis esse quidem, expedita voluptatum eaque labore odit. Reprehenderit, earum?
+        Dolore distinctio dicta molestias iusto? Architecto totam officia dolor dolore ab quaerat ipsam nesciunt, harum saepe! Assumenda, perferendis. Itaque quo suscipit saepe rem soluta corrupti corporis laudantium natus nesciunt placeat.</p>
+    </div>
+    
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+    <!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="https://code.jquery.com/mobile/1.5.0-rc1/jquery.mobile-1.5.0-rc1.js" integrity="sha256-ozaZ7ZptnEEuLpoEojfxBjOKXHoaQUb/DLnsTUEkIfs=" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="swipe-app.js"></script>
+
+</body>
+</html>

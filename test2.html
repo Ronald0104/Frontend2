@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            background-color: bisque;
+            margin: 0 30px;
+        }
+
+        .row {
+            display: flex;
+        }
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6 {
+            position: relative;
+        }
+
+        .col-1 {
+            flex: 0 0 8.33%;
+            max-width: 8.33%;
+        }
+
+        .col-2 {
+            flex: 0 0 16.66%;
+            max-width: 16.66%;
+        }
+
+        .col-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .col-4 {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+
+        .col-5 {
+            width: 0 0 41.66%;
+            max-width: 41.66%;
+        }
+
+        .col-6 {
+            width: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        p.mensaje {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: darkblue;
+            max-height: 30px;
+            background-color: lightcoral;
+            white-space: nowrap;
+            /* overflow-x: overlay; */
+            overflow-x: clip;
+            text-overflow: ellipsis;
+        }
+        .z-idx-2000 {
+            z-index: 2000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Elementos Inline, Block - Inline Block -->
+
+    <div class="container">
+        <!-- Block -->
+        <p>Este es un parrafo en block xD!!!</p>
+        <p>Otro bloque xD!!</p>
+        <h2>Ronald Miguel Terrones </h2>
+
+        <!-- <div class="form"> -->
+        <!-- <form action="#"> -->
+        <div class="wrapper row">
+            <div class="col-3 yellow z-idx-2000">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ut, enim magnam minus id soluta
+                voluptates similique, unde esse tempora voluptatum? Quisquam unde sit nihil, nobis consequuntur sint
+                minus eveniet.
+
+                <p class="mensaje">este es un mensaje un poquito largo</p>
+            </div>
+            <!---->
+            <div class="col-4 green">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit autem magni et sapiente nemo, veniam
+                quae nihil tenetur accusantium incidunt rem repellat eaque ratione reprehenderit dolorem esse totam
+                voluptatibus odit?
+            </div>
+            <!-- <div class="col-5 red">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit autem magni et sapiente nemo, veniam
+                quae nihil tenetur accusantium incidunt rem repellat eaque ratione reprehenderit dolorem esse totam
+                voluptatibus odit?
+            </div> -->
+        </div>
+
+        <!-- </form> -->
+        <!-- </div> -->
+    </div>
+
+    <script>
+        console.log('Prueba impresion');
+
+
+        (function () {
+            console.log('Prueb IIFE');
+
+            var _instance;
+            function app(options) {
+                _instance = _instance || {};
+                return _instance;
+            }
+            app.data = {
+                id: 1,
+                name: 'Ronald'
+            }
+
+            // _init({});
+            window.appTest = app;
+        })(window, document)
+    </script>
+</body>
+
+</html>

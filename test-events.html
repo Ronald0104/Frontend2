@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests Eventos</title>
+    <style>
+        * {
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            padding: 20px;
+        }
+
+        input {
+            outline: none;
+            padding: 2px 6px;
+            min-height: 25px;
+            font-size: 1.1rem;
+        }
+        button {
+            padding: 4px 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .group-form {
+            padding: 4px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="group-form">
+            <label for="numero1">Numero 1 : </label>
+            <input type="text" name="numero1" id="numero1">
+        </div>
+        
+        <hr>
+        <div class="group-form">
+            <label for="numero1">Numero 2 : </label>
+            <input type="text" name="numero1" id="numero1">
+        </div>
+        
+        <button id="btnAgregar">Agregar</button>
+        <button id="btnLimpiar">Limpiar</button>
+        <button id="btnLimpiarConsola">Limpiar consola</button>
+        <br>
+        <div id="resultado">
+
+        </div>
+    </div>
+
+    <script>
+        var inputNumero1 = document.getElementById('numero1');
+        var resultado = document.getElementById('resultado');
+        inputNumero1.addEventListener('keypress', function(evt) {
+            console.log(this.name,'Se produjo el evento keypress');
+            let text = resultado.innerHTML + this.name+' Se produjo el evento keypress<br>';            
+            resultado.innerHTML = text;
+        })
+        inputNumero1.addEventListener('change', function(evt) {
+            console.log(this.name,'Se produjo el evento change');
+            let text = resultado.innerHTML + this.name+' Se produjo el evento change<br>';            
+            resultado.innerHTML = text;
+        })
+        inputNumero1.addEventListener('input', function(evt) {
+            console.log(this.name, 'Se produjo el evento input');
+            console.log(evt.target, evt.data);
+            
+            let event = JSON.stringify(evt);
+            let text = resultado.innerHTML + this.name+' Se produjo el evento input'+evt.data+'<br>';
+            resultado.innerHTML = text;
+
+            // Validar si se esta copiando del portapapeles
+            let valueOld = this.dataset.dataValue || '';
+            let valueNew = this.value;
+            
+            // Validar numer
+            // Validar numericos y 2 decimales
+            if (!validateDecimal(valueNew)) {
+                text = resultado.innerHTML + this.name+' No es numero '+valueNew+'<br>';
+                resultado.innerHTML = text;
+                this.value = valueOld;                
+            } else {
+                this.dataset.dataValue = valueNew;
+            }
+        })
+
+        var btnAgregar = document.getElementById('btnAgregar');
+        btnAgregar.addEventListener('click', function(evt) {
+            inputNumero1.value = inputNumero1.value + '.515151';
+        })
+        var btnLimpiar = document.getElementById('btnLimpiar');
+        btnLimpiar.addEventListener('click', function(evt) {
+            inputNumero1.value = '';
+        })
+        var btnLimpiarConsola = document.getElementById('btnLimpiarConsola');
+        btnLimpiarConsola.addEventListener('click', function(evt) {
+            resultado.innerHTML = '';
+        })
+
+        function validateDecimal(valor) {
+            var expReg = /^\d*(\.\d{0})?\d{0,2}$/;
+            if (expReg.test(valor)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
